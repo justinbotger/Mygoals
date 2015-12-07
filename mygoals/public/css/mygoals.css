@@ -1,0 +1,56 @@
+#goals {
+    width: 74%;
+    margin: auto;
+    padding: 10px;
+    color: #6d6e70;
+    float: right;
+}
+
+#goal {
+    padding: 10px;
+    background: white;
+    margin-bottom: 10px;
+    border: solid 2px #6d6e70;
+    border-radius: 10px;
+}
+
+#goal h1 {
+     font-size: xx-large;
+     margin-bottom: 10px;
+}
+
+#goal p {
+    font-size: medium;
+    margin-bottom: 10px;
+}
+
+#goal #progress_wrapper {
+    overflow: auto;
+}
+
+#goal #progress {
+    font-size: xx-large;
+    float: left;
+    color: #66bc45;
+}
+
+#goal progress {
+    width: 90%;
+    height: 40px;
+    margin-bottom: 10px;
+    float: right;
+}
+
+#goal #deadline_wrapper {
+    overflow: auto;
+}
+
+#goal #deadline_wrapper #deadline_label {
+    width: 10%;
+    float: left;
+}
+
+#goal #deadline_wrapper #deadline {
+    width: 90%;
+    float: right;
+}
