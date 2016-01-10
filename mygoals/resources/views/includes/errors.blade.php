@@ -1,5 +1,5 @@
 @if (count($errors) > 0)
-    <div class="">
+    <div class="errors">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
         <ul>
             @foreach ($errors->all() as $error)

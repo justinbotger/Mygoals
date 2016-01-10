@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Goal;
 use Auth;
-use Carbon\Carbon;
+use App\Goal;
+use App\Comment;
+use App\ProgressUpdate;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class GoalsController extends Controller
+class ProgressUpdateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +19,13 @@ class GoalsController extends Controller
      */
     public function index()
     {
-        $goals = Auth::user()->goals()->get();
-        return view('goals.mygoals', compact('goals'));
+        $updates = ProgressUpdate::with('goal')->with('comment')->with('user')->with('encouragement')->orderBy('created_at', 'desc')->get();
+        $userGoals = Auth::user()->goals()->get();
+        return view('index', compact('updates', 'userGoals'));
+    }
+
+    public function welcome() {
+        return view('welcome');
     }
 
     /**
@@ -29,7 +35,7 @@ class GoalsController extends Controller
      */
     public function create()
     {
-        return view('goals.setgoal');
+        //
     }
 
     /**
@@ -41,14 +47,17 @@ class GoalsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|max:255|min:2',
-            'description' => 'required|max:255|min:2',
-            'deadline' => 'required|date|after:today'
+            'title' => 'required|min:2|max:100',
+            'body' => 'required|min:2',
+            'added_progress' => 'min:0|max:100'
         ]);
 
-        $goal = new Goal($request->all());
+        $update = new ProgressUpdate($request->all());
+        Auth::user()->progressUpdate()->save($update);
+        $goal = Goal::find($update->goal_id);
+        $goal->progress += $update->added_progress;
         Auth::user()->goals()->save($goal);
-        return redirect('/mygoals');
+        return redirect('/');
     }
 
     /**
@@ -70,8 +79,7 @@ class GoalsController extends Controller
      */
     public function edit($id)
     {
-        $goal = Goal::findOrFail($id);
-        return view('goals.edit', compact('goal'));
+        //
     }
 
     /**
@@ -83,9 +91,7 @@ class GoalsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $goal = Goal::findOrFail($id);
-        $goal->update($request->all());
-        return redirect('mygoals');
+        //
     }
 
     /**
@@ -96,7 +102,6 @@ class GoalsController extends Controller
      */
     public function destroy($id)
     {
-        Goal::findOrFail($id)->delete();
-        return redirect('mygoals');
+        //
     }
 }

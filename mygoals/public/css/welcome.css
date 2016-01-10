@@ -1,0 +1,80 @@
+.login_header {
+
+}
+
+.login_header h1 {
+    color: #66bc45;
+    font-size: x-large;
+}
+
+
+#form_wrapper {
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    overflow: auto;
+    font-size: large;
+    line-height: 40px;
+}
+
+#login {
+    float: right;
+    width: 45%;
+    padding: 10px;
+    background: white;
+    border: solid 1px #6d6e70;
+    border-radius: 5px;
+}
+
+#register {
+    float: left;
+    width: 45%;
+    padding: 10px;
+    background: white;
+    border: solid 1px #6d6e70;
+    border-radius: 5px;
+}
+
+#login .form_field,
+#register .form_field{
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: auto;
+}
+
+#login .form_field label,
+#register .form_field label {
+    width: 50%;
+    float: left;
+}
+#login .form_field .input,
+#register .form_field .input{
+    width: 50%;
+    float: right;
+}
+
+#login .form_field .input input,
+#register .form_field .input input{
+    border-radius: 5px;
+    border: solid 2px #6d6e70;
+    height: 40px;
+    font-size: medium;
+}
+
+#login .form_field .button,
+#register .form_field .button {
+    width: 50%;
+    margin: auto;
+}
+
+#login .form_field .button button,
+#register .form_field .button button {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: solid 2px #6d6e70;
+    background: #66bc45;
+    color: white;
+    height: 40px;
+    font-size: x-large;
+}

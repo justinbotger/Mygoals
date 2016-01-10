@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGoalsTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,14 @@ class CreateGoalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('goals', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->integer('user_id')->unsigned();
-            $table->string('title');
-            $table->string('description');
-            $table->timestamp('deadline');
-            $table->integer('progress')->default(0);
-            $table->string('category');
-            $table->boolean('achieved')->default(false);
-
+            $table->integer('reciever_id')->unsigned();
+            $table->string('subject')->nullable();
+            $table->string('body')->nullable();
+            $table->boolean('isread')->default(false);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -34,6 +31,6 @@ class CreateGoalsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('goals');
+        Schema::drop('messages');
     }
 }

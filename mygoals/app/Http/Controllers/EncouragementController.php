@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Encouragement;
 use Illuminate\Http\Request;
-use App\Goal;
 use Auth;
-use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class GoalsController extends Controller
+class EncouragementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +17,7 @@ class GoalsController extends Controller
      */
     public function index()
     {
-        $goals = Auth::user()->goals()->get();
-        return view('goals.mygoals', compact('goals'));
+        //
     }
 
     /**
@@ -29,7 +27,7 @@ class GoalsController extends Controller
      */
     public function create()
     {
-        return view('goals.setgoal');
+        //
     }
 
     /**
@@ -40,15 +38,9 @@ class GoalsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required|max:255|min:2',
-            'description' => 'required|max:255|min:2',
-            'deadline' => 'required|date|after:today'
-        ]);
-
-        $goal = new Goal($request->all());
-        Auth::user()->goals()->save($goal);
-        return redirect('/mygoals');
+        $encouragement = new Encouragement($request->all());
+        Auth::user()->progressUpdate()->save($encouragement);
+        return redirect('/');
     }
 
     /**
@@ -70,8 +62,7 @@ class GoalsController extends Controller
      */
     public function edit($id)
     {
-        $goal = Goal::findOrFail($id);
-        return view('goals.edit', compact('goal'));
+        //
     }
 
     /**
@@ -83,9 +74,7 @@ class GoalsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $goal = Goal::findOrFail($id);
-        $goal->update($request->all());
-        return redirect('mygoals');
+        //
     }
 
     /**
@@ -96,7 +85,6 @@ class GoalsController extends Controller
      */
     public function destroy($id)
     {
-        Goal::findOrFail($id)->delete();
-        return redirect('mygoals');
+        //
     }
 }

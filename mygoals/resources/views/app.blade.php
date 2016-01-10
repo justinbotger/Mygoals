@@ -9,7 +9,7 @@
     <img id="logo" src="images/logo.png" alt="">
     @if(Auth::check())
     <div id="profile_field">
-        <a id="profile_link" href="#">
+        <a id="profile_link" href="profiles.profile">
             <img src="images/profilepic.png" alt="username"><br>
             <div id="name">{{ Auth::user()->name }}</div>
         </a>

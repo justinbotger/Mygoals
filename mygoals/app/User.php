@@ -40,4 +40,24 @@ class User extends Model implements AuthenticatableContract,
     public function goals() {
         return $this->hasMany('App\Goal');
     }
+
+    public function profile() {
+        return $this->hasOne('App\Profile');
+    }
+
+    public function progressUpdate() {
+        return $this->hasMany('App\ProgressUpdate');
+    }
+
+    public function comment() {
+        return $this->hasMany('App\Comment');
+    }
+
+    public function encouragement() {
+        return $this->hasMany('App\Encouragement');
+    }
+
+    public function message() {
+        return $this->hasMany('App\Message');
+    }
 }

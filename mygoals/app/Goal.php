@@ -18,4 +18,8 @@ class Goal extends Model
     public function user() {
         return $this->belongsTo('App\User');
     }
+
+    public function progressUpdate() {
+        return $this->hasMany('App\ProgressUpdate');
+    }
 }

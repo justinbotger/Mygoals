@@ -1,45 +1,18 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>Laravel</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">My Goals</div>
-            </div>
+<head>
+    <link rel="stylesheet" href="css/welcome.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+    <div id="form_wrapper">
+        @include('includes.errors')
+        <div id="register">
+            @include('includes.register_form')
         </div>
-    </body>
+        <div id="login">
+            @include('includes.login_form')
+        </div>
+    </div>
+</body>
 </html>

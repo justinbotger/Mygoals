@@ -57,7 +57,7 @@ header #logo {
     float: right;
     color: white;
     padding: 3px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 5px;
 }
 
@@ -70,8 +70,9 @@ header #logo {
 
 nav {
     width: 100%;
-    background: #66bc45;
+    background: linear-gradient(#66bc45, #38b449);
     overflow: auto;
+    box-shadow: 0px 1px grey;
 }
 
 nav ul {
@@ -96,4 +97,18 @@ nav ul li a {
 
 nav ul li a:hover {
     background: #38b449;
+}
+
+.errors {
+    background: #ff8484;
+    padding: 10px;
+    border: solid 1px #d62728;
+    border-radius: 5px;
+    font-size: medium;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.errors ul {
+    list-style: inside;
 }

@@ -12,12 +12,28 @@
 */
 
 
+Route::get('/', ['middleware' => 'auth', 'uses' => 'ProgressUpdateController@index']);
+Route::get('welcome', ['middleware' => 'guest', 'uses' => 'ProgressUpdateController@welcome']);
+Route::post('update/create', ['middleware' => 'auth', 'uses' => 'ProgressUpdateController@store']);
 
-Route::get('/', function () {return view('index');});
+Route::post('comment/create', ['middleware' => 'auth', 'uses' => 'CommentController@store']);
+Route::post('encouragement/create', ['middleware' => 'auth', 'uses' => 'EncouragementController@store']);
 
-Route::get('mygoals', 'GoalsController@index');
-Route::get('setgoals', 'GoalsController@create');
-Route::post('setgoals', 'GoalsController@store');
+Route::get('mygoals', ['middleware' => 'auth', 'uses' => 'GoalsController@index']);
+Route::get('setgoals', ['middleware' => 'auth', 'uses' => 'GoalsController@create']);
+Route::post('setgoals', ['middleware' => 'auth', 'uses' => 'GoalsController@store']);
+Route::delete('removegoal/{id}', ['middleware' => 'auth', 'uses' => 'GoalsController@destroy']);
+Route::get('editgoal/{id}', ['middleware' => 'auth', 'uses' => 'GoalsController@edit']);
+Route::patch('editgoal/{id}', ['middleware' => 'auth', 'uses' => 'GoalsController@update']);
+
+Route::get('profile', ['middleware' => 'auth', 'uses' => 'ProfileController@index']);
+Route::get('profile/create', ['middleware' => 'auth', 'uses' => 'ProfileController@create']);
+Route::post('profile/create', ['middleware' => 'auth', 'uses' => 'ProfileController@store']);
+Route::get('profile/update', ['middleware' => 'auth', 'uses' => 'ProfileController@edit']);
+Route::patch('profile/update', ['middleware' => 'auth', 'uses' => 'ProfileController@update']);
+
+Route::get('inbox', ['middleware' => 'auth', 'MessageController@index']);
+Route::post('inbox/send', ['middleware' => 'auth', 'MessageController@store']);
 
 Route::controllers(['auth' => 'Auth\AuthController', 'password' => 'Auth\PasswordController',]);
 

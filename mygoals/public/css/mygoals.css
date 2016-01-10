@@ -7,50 +7,105 @@
 }
 
 #goal {
-    padding: 10px;
-    background: white;
     margin-bottom: 10px;
-    border: solid 2px #6d6e70;
-    border-radius: 10px;
 }
 
-#goal h1 {
+#top {
+    padding: 10px;
+    border: solid 1px #6d6e70;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: white;
+}
+
+#goal #top h1 {
      font-size: xx-large;
      margin-bottom: 10px;
 }
 
-#goal p {
+#goal #top p {
     font-size: medium;
     margin-bottom: 10px;
 }
 
-#goal #progress_wrapper {
+#goal #category {
+    overflow: auto;
+    margin-bottom: 10px;
+}
+
+#goal #category img{
+    width: 25px;
+    float: left;
+    margin-right: 10px;
+}
+
+#goal #category #category_name{
+    font-size: x-large;
+    float: left;
+}
+
+#goal #top #progress_wrapper {
     overflow: auto;
 }
 
-#goal #progress {
+#goal #top #progress {
     font-size: xx-large;
     float: left;
     color: #66bc45;
 }
 
-#goal progress {
+#goal #top progress {
     width: 90%;
     height: 40px;
     margin-bottom: 10px;
     float: right;
+    border-radius: 5px;
 }
 
-#goal #deadline_wrapper {
+#goal #top #time_wrapper {
     overflow: auto;
 }
 
-#goal #deadline_wrapper #deadline_label {
+#goal #top #time_wrapper #deadline_label,
+#goal #top #time_wrapper #created_at_label{
     width: 10%;
     float: left;
+    margin-bottom: 5px;
 }
 
-#goal #deadline_wrapper #deadline {
+#goal #top #time_wrapper #deadline,
+#goal #top #time_wrapper #created_at{
     width: 90%;
     float: right;
+    margin-bottom: 5px;
+}
+
+#goal #buttons {
+    overflow: auto;
+    padding: 10px 0;
+    border: solid 1px #6d6e70;
+    border-top: none;
+    background: #bdbdbd;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#goal #buttons #remove,
+#goal #buttons #edit{
+    float: left;
+    margin: 0 10px;
+    border-radius: 5px;
+    border: solid 1px #6d6e70;
+    background: #ff3a53;
+    color: white;
+    height: 30px;
+    font-size: large;
+}
+
+#goal #buttons #edit {
+    background: #0076ff;
+}
+
+#goal #buttons #remove {
+    background: #ff3a53;
 }
