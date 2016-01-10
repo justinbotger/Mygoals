@@ -1,6 +1,6 @@
 <div class="login_header">
     <h1>Register</h1>
-    <h3>It's free (and it will stay like that)</h3>
+    <h3>It's free!</h3>
 </div>
 <form class="" role="form" method="POST" action="/auth/register">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
